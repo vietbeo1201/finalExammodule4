@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Create customer</h1>
+<p>
+  <a href="/customer/management">danh sách khách hàng</a>
+</p>
+<th:block th:if="${message}">
+  <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/customer/create}" th:object="${customer}" method="post">
+  <table>
+    <tr>
+      <td>Tên khách hàng: </td>
+      <td><input type="text" th:field="*{cusName}"/></td>
+    </tr>
+    <tr>
+      <td>Số điện thoai: </td>
+      <td><input type="text" th:field="*{so_dien_thoai}"/></td>
+    </tr>
+    <tr>
+      <td>Email: </td>
+      <td><input type="text" th:field="*{email}"/></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Create customer"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
