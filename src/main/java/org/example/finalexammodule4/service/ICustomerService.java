@@ -1,8 +1,10 @@
 package org.example.finalexammodule4.service;
 
 import org.example.finalexammodule4.model.Customer;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+
 
 public interface ICustomerService extends IGenerateService<Customer> {
     Iterable<Customer> findAll();
@@ -12,4 +14,6 @@ public interface ICustomerService extends IGenerateService<Customer> {
     void save(Customer customer);
 
     void remove(Long id);
+
+
 }

@@ -6,9 +6,6 @@
 </head>
 <body>
 <h1>Create customer</h1>
-<p>
-  <a href="/customer/management">danh sách khách hàng</a>
-</p>
 <th:block th:if="${message}">
   <p th:text="${message}"></p>
 </th:block>
@@ -16,15 +13,15 @@
   <table>
     <tr>
       <td>Tên khách hàng: </td>
-      <td><input type="text" th:field="*{cusName}"/></td>
+      <td><input type="text" th:field="*{cusName}" required/></td>
     </tr>
     <tr>
       <td>Số điện thoai: </td>
-      <td><input type="text" th:field="*{so_dien_thoai}"/></td>
+      <td><input type="text" th:field="*{cusPhone}" required/></td>
     </tr>
     <tr>
       <td>Email: </td>
-      <td><input type="text" th:field="*{email}"/></td>
+      <td><input type="text" th:field="*{cusEmail}" required/></td>
     </tr>
     <tr>
       <td></td>

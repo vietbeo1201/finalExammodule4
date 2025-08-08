@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Create customer</h1>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/transaction/create}" th:object="${transaction}" method="post">
+    <table>
+        <tr>
+            <td>Mã Giao Dịch</td>
+            <td><input type="text" th:value="${nextId}" readonly></td>
+        </tr>
+        <tr>
+            <td>Tên khách hàng </td>
+<!--            <td><input type="text" th:field="*{customer}" required/></td>-->
+        </tr>
+        <tr>
+            <td>loại bất động sản</td>
+            <td><input type="text" th:field="*{transType}" required/></td>
+        </tr>
+        <tr>>
+            <td>Ngày giao dịch:</td>
+            <td><input type="date" th:field="*{transDate}" required></td>
+        </tr>
+        <tr>
+            <td>Đơn Giá</td>
+            <td><input type="text" th:field="*{transPrice}" required></td>
+        </tr>
+        <tr>
+            <td>diện tích</td>
+            <td><input type="text" th:field="*{transArea}" required></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Create customer"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
