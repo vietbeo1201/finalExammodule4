@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface ITransactionRepository extends JpaRepository<Transaction, Long> {
-    @Query("SELECT MAX(c.transId) FROM Transaction c")
+    @Query("SELECT MAX(t.transId) FROM Transaction t")
     Long findLastId();
 }

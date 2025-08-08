@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/transaction/management">tất cả giao dịch</a>
+<h1>chi tiết giao dịch</h1>
+    <table th:with="t = ${transaction}">
+        <tr>
+            <td>Mã Giao Dịch</td>
+            <td th:text="${t.transactionCode}"></td>
+        </tr>
+        <tr>
+            <td>Tên khách hàng </td>
+            <td th:text="${t.customer.cusName}"></td>
+        </tr>
+        <tr>
+            <td>loại bất động sản</td>
+            <td th:text="${t.transType}"></td>
+        </tr>
+        <tr>
+            <td>Ngày giao dịch:</td>
+            <td th:text="${#temporals.format(t.transDate, 'dd/MM/yyyy')}"></td>
+        </tr>
+        <tr>
+            <td>Đơn Giá</td>
+            <td th:text="${t.transPrice}"></td>
+        </tr>
+        <tr>
+            <td>diện tích</td>
+            <td th:text="${t.transArea}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><a th:href="@{/transaction/delete/{id}(id=${t.getTransId()})}">xóa</a></td>
+            <td><a href="/transaction/management"> quay lại</a></td>
+        </tr>
+    </table>
+</body>
+</html>

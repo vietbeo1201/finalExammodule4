@@ -3,6 +3,7 @@ package org.example.finalexammodule4.controller;
 import org.example.finalexammodule4.model.Customer;
 import org.example.finalexammodule4.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -39,5 +40,14 @@ import org.springframework.web.servlet.ModelAndView;
             modelAndView.addObject("message", "New customer created successfully");
             return modelAndView;
         }
-    }
+
+//    @Controller
+//    public class CustomErrorController implements ErrorController {
+//        @RequestMapping("/error")
+//        public String handleError() {
+//            return "error";
+//        }
+//    }
+
+}
 

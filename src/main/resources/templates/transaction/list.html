@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <!--<head th:replace="/layout :: head">-->
+<head>
 <title>danh sách khách hàng</title>
 </head>
 <body>
+<a href="/transaction/create"> thêm mới</a>
 <div style="margin-bottom: 10px; margin-left: 110px">
     <form th:action="@{/transaction/management}" method="get">
         <label><input  type="text" name="search"></label>
@@ -25,12 +27,12 @@
     <tbody>
     <tr th:each="c,cStatus : ${transactions}">
         <td th:text="${c.transactionCode}"></td>
-        <td th:text="${c.customer.getCusName}"></td>
-        <td th:text="${#temporals.format(c.getTransDate(), 'dd/MM/yyyy')}"></td>
-        <td th:text="${c.getTransType()}"></td>
-        <td th:text="${c.getTransPrice()}"></td>
-        <td th:text="${c.getTransArea()}"></td>
-        <td><a th:href="@{/customers/update/{id}(id=${c.getTransId()})}">chi tiết</a></td>
+        <td th:text="${c.customer.cusName}"></td>
+        <td th:text="${#temporals.format(c.transDate, 'dd/MM/yyyy')}"></td>
+        <td th:text="${c.transType}"></td>
+        <td th:text="${c.transPrice}"></td>
+        <td th:text="${c.transArea}"></td>
+        <td><a th:href="@{/transaction/detail/{id}(id=${c.transId})}">chi tiết</a></td>
     </tr>
     </tbody>
 </table>

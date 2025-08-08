@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
+<head th:replace="/layout :: head">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<h1>Create customer</h1>
+<a href="/transaction/management">tất cả giao dịch</a>
+<h1>Create transaction</h1>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
 </th:block>
@@ -17,13 +18,21 @@
         </tr>
         <tr>
             <td>Tên khách hàng </td>
+            <td>
+                <label for="cusName"></label>
+                <select id="cusName" th:field="*{customer}">
+                    <option th:each="c:${customer}" th:value="${c.cusId}" th:text="${c.cusName}"></option>
+                </select>
+            </td>
+
 <!--            <td><input type="text" th:field="*{customer}" required/></td>-->
         </tr>
         <tr>
             <td>loại bất động sản</td>
-            <td><input type="text" th:field="*{transType}" required/></td>
+            <td><input type="radio" th:field="*{transType}" th:value="'đất'" required/>đất</td>
+            <td><input type="radio" th:field="*{transType}" th:value="'nhà đất'" />nhà đất</td>
         </tr>
-        <tr>>
+        <tr>
             <td>Ngày giao dịch:</td>
             <td><input type="date" th:field="*{transDate}" required></td>
         </tr>
@@ -37,7 +46,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="Create customer"></td>
+            <td><input type="submit" value="Create transaction"></td>
         </tr>
     </table>
 </form>
